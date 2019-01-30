@@ -1,2 +1,3 @@
 # gald-cw
-coursework on subjects around galactic dynamics
+
+пока особенно ничего нет, используется чтобы было где размещать `jupyter notebooks`
