@@ -1,9 +1,8 @@
 # gald-cw
 
-Интерактивная модель орбиты (спирограф)
+Lissajous curve analiser with 3 frequencies.
+An orbit in N-body snapshot may look like this...
 
-Попробовать можно тут:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/taxus-d/gald-cw/master?filepath=orbits-spirograph%2Forbits_model.ipynb)
 
-(нужно какое-то количество раз нажать ``<Shift>+<Enter>``)
-
+(press `shift-enter` to the last cell)
