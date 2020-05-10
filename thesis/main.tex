@@ -1,14 +1,74 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass{trlnotes}
+\usepackage{trmath}
+\addcompatiblelayout{thesis}
+\setlayout{thesis}
 
-\title{thesis: orbital compositions of bars of different types}
-\author{Iliya Tikhonenko}
-\date{May 2020}
+\usepackage{aas_macros}
+\usepackage{trthm}
+\usepackage{trphys}
+\usepackage[normalem]{ulem}
+\usepackage{trsym}
+\usepackage{docmute}
+\usepackage{luacode}
+% \usepackage{tikz}
+\usepackage[
+  backend=biber,
+  natbib=true,
+  style=authoryear-comp,
+  sorting=none,
+  language=russian
+]{biblatex}
+\addbibresource{thesisrefs.bib}
+
+\graphicspath{{img/}}
 
 \begin{document}
 
-\maketitle
+\input{titlepage}\newpage
+\input{titlepage_en} 
+\setcounter{page}{3}
 
-\section{Introduction}
+\tableofcontents
+\clearpage
+
+\chapter*{Введение}
+\addcontentsline{toc}{chapter}{Введение}
+\input{tex/intro/intro.tex}
+
+\chapter{Модели}
+\label{chap:model}
+\input{tex/model/model.tex}
+
+\chapter{Метод анализа частот}
+\label{chap:method}
+%\input{tex/method/method.tex}
+
+\chapter{Выделение семейств}
+\label{chap:split}
+%\input{tex/families/split.tex}
+
+\chapter{Определение орбитального состава}
+\label{chap:orb}
+%\input{tex/families/orbits.tex}
+
+\chapter{Обсуждение}
+\label{chap:discuss}
+%\input{tex/discuss/discussion.tex}
+
+\chapter*{Заключение}
+\addcontentsline{toc}{chapter}{Заключение}
+\label{chap:conc}
+%\input{tex/conc/conclusion.tex}
+\clearpage
+
+\appendix
+
+
+\nocite{*}
+\printbibliography[
+  heading=bibintoc,
+  title={Литература}
+]
 
 \end{document}
+
