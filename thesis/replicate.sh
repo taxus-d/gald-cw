@@ -7,16 +7,16 @@ FONTDIR=fonts
 PACKAGEDIR=packages
 
 usepdflatex=true
-downloadfonts=false
+downloadfonts=true
 
 source "$(dirname $0)/replicate.lib.sh"
 
-$GIT && git_prepare
+#$GIT && git_prepare
 
 # пакеты. 
 # можно добавить нужные через fetch_package $url $name && unpack_package $name
 # или выкачать с github
-fetch_package_githubfallback 'https://github.com/taxus-d' tarantas master
+#fetch_package_githubfallback 'https://github.com/taxus-d' tarantas master
 
 
 read -p "Вы используете pdflatex? [Y/n] " $response
