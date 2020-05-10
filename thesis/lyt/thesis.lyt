@@ -1,0 +1,76 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{thesis.lyt}[2018/09/25 Somewhat common layout]
+
+\defaultfontfeatures{Ligatures={TeX}} 
+\setmainfont{PT Serif}
+\setsansfont{Nunito Sans}[
+   BoldFont    = {Nunito Sans Semibold}
+]
+
+\setmonofont{CMU Typewriter Text}
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
+
+\setmathfont{STIX Two Math}
+% Use XITSMath for    [     ]     (     )     {     }
+% \setmathfont[range={"005B,"005D,"0028,"0029,"007B,"007D}]{XITS Math}
+% но не все, а только фигурные
+\setmathfont[range={"007B,"007D,"023DF}]{XITS Math}
+
+
+% это при желании можно будет поменять,
+% но так там все ok:
+% 14 pt основной, 
+% 12 pt \small,
+% 16 pt \large
+% 18 pt \Large, но лучше б был 20
+\storePairDef{size=thesis}
+\setfont{\getByKey{size}}
+
+\RequirePackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+\renewcommand{\baselinestretch}{1.5}
+% флуууд. Может все-таки не надо?
+
+\RequirePackage{geometry}
+\geometry{ % no flexibility
+  a4paper,
+  portrait,
+  left=3cm,
+  right=1.5cm,
+  top=2cm,
+  bottom=2cm,
+  bindingoffset=0cm
+}
+\protected\def\note{\footnote}
+
+\renewcommand{\arraystretch}{1}
+\RequirePackage{titlesec}
+
+
+
+\titleformat{\chapter}
+  {\sffamily\upshape\bfseries\Large}
+  {\thechapter\\}
+  {1em}{}
+
+\renewcommand{\paragraph}{
+  \@startsection{paragraph}{2}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {3ex}%
+  {\sffamily\upshape\large}
+}
+
+\def\thesis@caption@style#1#2{%
+  \small% mnras - like style
+  \textbf{#1}\textbf{.}\thinspace\ #2%
+}
+\renewcommand{\@makecaption}[2]{%
+  \vskip\abovecaptionskip%
+  \sbox\@tempboxa{\thesis@caption@style{#1}{#2}}%
+  \ifdim \wd\@tempboxa >\hsize \thesis@caption@style{#1}{#2}\par%
+  \else \global \@minipagefalse \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi%
+  \vskip\belowcaptionskip%
+}
+\endinput
+% vim: ft=tex
