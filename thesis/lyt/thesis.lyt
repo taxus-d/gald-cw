@@ -1,14 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{thesis.lyt}[2018/09/25 Somewhat common layout]
 
-\defaultfontfeatures{Ligatures={TeX}} 
 \setmainfont{PT Serif}
 \setsansfont{Nunito Sans}[
    BoldFont    = {Nunito Sans Semibold}
 ]
 
 \setmonofont{CMU Typewriter Text}
-\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
+%\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
 
 \setmathfont{STIX Two Math}
 % Use XITSMath for    [     ]     (     )     {     }
