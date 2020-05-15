@@ -1,0 +1,367 @@
+\documentclass[tikz]{trlnotes}
+\usepackage{trmath}
+\addcompatiblelayout{thesis}
+\setlayout{thesis}
+\usepackage{trthm}
+\usepackage{trsym} 
+\usepackage{trphys}
+\usepackage{silence}
+% \usepackage{tikz}
+\usepackage[
+backend=biber,
+sorting=none,
+natbib=true,
+style=authoryear-comp,
+language=russian
+]{biblatex}
+\addbibresource{../../thesisrefs.bib}
+\WarningFilter{latex}{Reference}
+\graphicspath{{../../}}
+\begin{document}
+
+В работах, посвящённых классификации орбит на основе доминирующих частот, часто используются набор из угловой
+частоты $Ω$, эпициклической частоты $ϰ$ и вертикальной частоты $ν$
+\citep{athanassoula2002a,ceverino2007,voglis2007}. Однако, для изучения структуры бара во вращающейся системе
+отсчёта гораздо удобнее рассматривать <<декартовы>> ($ω_x, ω_y, ω_z, ω_R$) частоты, введённые в предыдущей главе, и не использовать $Ω$, определение которой не очень точно и требует учёта дополнительной информации кроме спектров
+\citep{athanassoula2002,gajda2016}. К тому же, в \citet{valluri2016} показано, что отношения декартовых частот
+гораздо лучше разделяют орбитальные семейства в <<замороженных>> потенциалах. 
+Однако, все-таки полезно сопоставить одни частоты с другими для лучшего понимания физики
+происходящего: 
+\[
+  ω_x \approx Ω - Ω_p, \quad ω_z = ν, \quad ω_R = ϰ,
+\]
+где $Ω_p$~"--- скорость вращения бара. Из-за постепенного замедления этого вращения первое равенство
+оказывается приближённым, а остальные два верны просто по определению.
+
+Перед тем как начать классифицировать семейства, необходимо сузить рассматриваемое множество частиц до наиболее
+интересных. Предварительная обработка модели включала следующие этапы:
+\begin{enumerate}
+  \item Отделение диска от гало. 
+  \item Перенос начала отсчёта координат в центр масс диска
+  \item Переход в систему отсчёта, вращающуюся вместе с баром.
+  \item Выбор интересующей области диска.
+\end{enumerate}
+Первые три этапа были выполнены с помощью пакета \texttt{NEMO}, после чего был произведён расчет доминирующих
+частот, описанный в главе \ref{chap:method}. Опишем теперь более подробно четвёртый шаг.
+\paragraph{Отделение диска и выбор интересующей области}
+
+В силу выбора координатных осей связанных с баром, в модели возникает характерный радиус, на котором
+угловая скорость вращения системы отсчёта практически совпадает с угловой скоростью вращения частиц в диске.
+В его окрестности доминирующие орбитальные частоты $\omega_x$ и $\omega_y$ окажутся малыми, порядка $\frac{2\pi}{t_2
+- t_1}$, поскольку частица не успевает совершить полный оборот вокруг центра на отрезке времени, для которого
+строится временной ряд и вычисляется преобразование Фурье. Естественно отождествить это радиус с радиусом
+коротации в модели. Обозначим его $R_c$ и выделим три группы частиц по их расположению относительно коротации
+(Рис.~\ref{fig:disksplit}, внизу).
+\begin{enumerate}
+  \item $f_x < f_{x, \min} \:\lor\: f_y < f_{x, \min}$. Частицы из этой группы образуют кольцо с утолщениями в
+    симметричных точках на оси $y$ вблизи радиуса коротации, выделенное в верхней части рис.~\ref{fig:disksplit}
+    оранжевым цветом.
+    Очень похожая структура была выделена в \citet{ceverino2007}, но по критерию $Ω \approx Ω_p$, который на мой
+    взгляд более сложен. В этой работе также подробно описывается <<захват>> частиц коротацией, который
+    наблюдается и в наших моделях. С точки зрения аналитических моделей потенциалов, он связан с устойчивостью
+    точек Лагранжа $L_4$ и
+    $L_5$ \citep[Fig.~3.14]{2008gady.book.....B}; утолщения на кольце наблюдаются в их окрестности.
+    В качестве радиуса коротации принималась середина кольца, поскольку 
+  \item Частицы с $f_x > f_{x, \min} \land f_y > f_{y, \min}$ и находящие дальше коротации связаны с диском
+    (рис.~\ref{fig:disksplit}, зелёным). Поскольку нас интересует только орбитальный состав бара, они были сразу исключены из
+    рассмотрения. 
+  \item Частицы с $f_x > f_{x, \min} \land f_y > f_{y, \min}$ но находящие внутри коротации представляют для
+    наибольший интерес для данного исследования. В классической работе \citet{contopoulos1980} было показано, что
+    бары не могут простираться дальше коротации, поэтому ограничив рассмотрение только этой областью, мы ничего не
+    упустим.
+\end{enumerate}
+
+\begin{figure}[htpb]
+  \centering
+  \includepgfgraphics[width=0.77\linewidth]{img/families/bulge1.5c/discsplit-proj.pgf}\par
+  \includepgfgraphics[width=0.77\linewidth]{img/families/bulge1.5c/discsplit-cr.pgf}
+  \caption{Разбиение частиц на области на примере модели BL. График снизу иллюстрирует выбор радиуса коротации,
+  верхний показывает результат разбиение в проекции ($x$, $y$) момент времени $t=450$.
+Детали процедуры разбиения описаны в тексте.}%
+  \label{fig:disksplit}
+\end{figure}
+
+Однако, как можно заметить на рис.~\ref{fig:disksplit}, даже во внутренней части всё ещё остаются частицы, мало
+связанные с баром. Особенно хорошо это заметно в проекции $(x, z)$, где, помимо утолщенной части бара, остаются
+частицы лежащие вблизи $z=0$. Нельзя исключать возможность, что такие частицы все же принадлежат бару (например, т.н.
+ansae~"--- <<ручки>>, соединяющие бар с кольцом), поскольку размеры B/PS структуры меньше его длины. Однако, как
+уже было описано во введении, барлинзы и B/PS балджи имеют сходные размеры, поэтому возможная потеря концов бара
+вряд ли изменить его морфологию плашмя. 
+
+
+\begin{figure}[htpb]
+  \centering
+  \begin{tikzpicture}[
+    im/.style = {inner sep=0pt, text width=0.8\textwidth},
+    node distance = 10pt
+    ]
+    \node[im] (FxFz) at (0,0) [anchor=south west] {\includepgfgraphics[width=\textwidth]{img/families/bulge1.5c/cl_fxfz.pgf}}; 
+    \node[im] [below=of FxFz] {\includepgfgraphics[width=\textwidth]{img/families/bulge1.5c/m_Ravfzfx.pgf}}; 
+    \begin{scope}[x={(FxFz.south east)},y={(FxFz.north west)}]
+      \coordinate (origin) at (0.126,0.111);
+      \coordinate (x1y2) at (0.87,0.97);
+      \draw[very thick,red!30!black] let \p1 = ($ (x1y2) - (origin) $) in 
+        (origin)  -- + (0.89*\x1, \y1);
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Наверху: двумерное распределение $ω_x$--$ω_z$. Красная прямая на верхней сооотвествуют $ω_z = 2.25\,
+    ω_x$, исключается все слева от неё. Внизу: двумерное распределение отношения $ω_z/ω_x$ от среднего радиуса
+  орбиты $\averg{R}$, исключается область выше $ω_z/ω_x = 2.25$ и правее $\averg{R} = 0.8$.}
+  \label{fig:innerrefine}
+\end{figure}
+
+Опишем процедуру выбора области интереса во внутренней части. На верхней половине рис.~\ref{fig:innerrefine} можно
+заметить выделяющуюся прямую, сооотвествующую орбитам c $ω_z = 2\, ω_x$, <<полосу>> правее неё с меньшим отношением
+$ω_z /ω_x$ и область вблизи $ω_x = 0$ c большими значениями этого отношения. Нижняя часть
+рис.~\ref{fig:innerrefine} ясно демонстрирует что эта область состоит из двух частей~"--- орбиты с небольшими
+значениями $\averg{R}$ вблизи начала координат и <<хвост>> орбит, уходящих далеко от центра. Именно эти орбиты
+лежат вблизи $z=0$, как хорошо видно на рис.~\ref{fig:inneredgeon}. В итоге, из изначально выбранной области
+внутри коротации дополнительно отбираются орбиты по критериям
+\begin{equation}
+  ω_z/ω_x < 2.25 \: \lor \: \averg{R} < 0.8.
+\end{equation}
+В дальнейшем изложении мы будем изучать только ту часть области внутри коротации, для которой выполнен критерий
+выше, поскольку остальная часть диска не представляет интереса для исследования орбитального состава внутренних
+областей бара, наблюдаемого <<плашмя>>. При этом, для всех четырёх моделей рассматриваемая часть содержит около
+$50\%$ от 4 млн. частиц диска.
+\begin{figure}[htpb]
+  \centering
+  \includepgfgraphics[width=0.48\linewidth]{img/families/bulge1.5c/xy_hex.pgf}
+  \includepgfgraphics[width=0.48\linewidth]{img/families/bulge1.5c/other/xy_hex.pgf}
+  \\
+  \includepgfgraphics[width=0.48\linewidth]{img/families/bulge1.5c/xz_hex.pgf}
+  \includepgfgraphics[width=0.48\linewidth]{img/families/bulge1.5c/other/xz_hex.pgf}
+  \caption{Слева: выбранная область в проекциях $(x,y)$, $(x,z)$ в момент времени $t=450$, справа: оставшаяся
+    часть внутри коротации.  Цветовая шкала совпадает на изображениях в одном ряду: для верхнего ряда максимальное
+    значение составляет $5000$, для нижнего~"--- $7500$.%
+  }%
+  \label{fig:inneredgeon}
+\end{figure}
+
+\paragraph{Основные семейства}
+\tikzset{
+  modelname/.style = {
+    fill=lightgray, fill opacity=0.8, text opacity=1,
+    font=\Large
+}}
+Опишем в деталях процедуру выбора орбитальных семейств. 
+Поскольку хотелось бы получить единообразную и исчерпывающую классификацию орбит, объясняющую все рассмотренные
+варианты морфологии бара, необходимо сначала хотя бы на качественном уровне понять какие семейства можно выделить
+во всех моделях по отношению доминирующих частот. На рис.~\ref{fig:modelcomp1dist} приведены проекции области,
+выбранной по алгоритму описанному выше, и одномерные распределения $ω_R/ω_x$, $ω_y/ω_x$. Хорошо заметен пик вблизи
+2 для первого из них и вблизи 1 для второго. Поскольку в выбранной системе отсчёта $ω_x \approx Ω - Ω_p$, можно
+следуя работам \citet{gajda2016,portail2015} отождествить $ω_R \approx 2\, ω_x$ с баром в его классическом
+понимании, составленном из орбит\note{более подробное обсуждение типов орбит изложено в главе~\ref{chap:orbits}},
+порождённых $x_1$, находящихся в внутреннем резонансе Линдблада (ILR) \citep{athanassoula2003}.
+Важно отметить, что использование критерия, завязанного на декартовы
+частоты не искажает морфологию получившегося <<классического>> бара. Представленные в дальнейшим изложении
+проекции этого семейства очень похожи на изображения ILR в \citet[Fig.~10]{ceverino2007}, выбранного по $Ω - Ω_p
+\approx ϰ/2$. Слева и справа от пика в $2$ отчетливо видны ещё как минимум два семейства:
+c $ω_R/ω_x > 2$ и $ω_R/ω_x < 2$.  По мере перехода от арахисообразной формы бара к линзообразной их
+относительнный вклад увеличивается, а количество частиц, находящихся в ILR уменьшается. Важное отличие хорошо
+заметно между моделями BL и BLx~"--- возникает довольно широкий пик вблизи $ω_R/ω_x \approx 1.7$. Как будет
+показано в дальнейшем, именно семейство, сооотвествующее этому пику вносит наибольний вклад в округлую форму
+присущую барлинзе.
+
+Не менее интересная закономерность наблюдается и на распределениях $ω_y/ω_x$. Широкая область справа от пика в
+единице, сооотвествующая т.н. boxy орбитам, становится всё менее протяженной по значению отношения и менее
+населённой. На каждом графике в этой области можно выделить свой пик, сооотвествующий резонансным орбитам. В
+терминологии, принятой в \cite{valluri2016}, такие орбиты называются resonant boxlet. Для модели арахисообразным
+баром он сооотвествуют $ω=5/3$, для промежуточных морфологий~"--- $3/2$, а для бара с барлинзой~"--- $4/3$.
+За счёт уменьшения количества boxy орбит возрастает величина пика с $ω_y/ω_x = 1$. Значительную его часть
+составляют орбиты $x_1$ и их вертикальные бифуркации\note{не знаю как это сказать понятно и аккуратно},
+находящиеся в баре.
+
+Обобщая качественные рассуждения выше, можно сформулировать следующие критерии <<автоматической>> (в
+таком же смысле как в \cite{valluri2016}) классификации орбитальных семейств, опираясь на
+рис.~\ref{fig:fRxfyx_bar}. Эти критерии вместе с условным обозначением для каждого семейства приведены ниже.
+Границы семейств были выбраны следуя статье \citet{portail2015}, поскольку другие методы (например по погрешности
+отношения) настолько же и нефизичны и не позволяют получить универсальную оценку, не зависящую от радиуса.
+\begin{table}[hb]
+  \begin{tabular}{rl}
+    $x_i$ bar & $|ω_R/ω_x - 2| < 0.1 \land |ω_y/ω_x - 1| < 0.1$ \\
+    boxy bar  & $|ω_R/ω_x - 2| < 0.1 \land  ω_y/ω_x > 1.1$ \\
+    $\text{bl}_\text{u}$  & $ω_R/ω_x < 1.9$ \\
+    $\text{bl}_\text{o}$  & $ω_R/ω_x > 2.1$ \\
+  \end{tabular}
+\end{table}
+
+
+\begin{figure}[htpb]
+\centering
+\begin{tikzpicture}[
+  snap/.style = {inner sep=0pt, text width = 0.2\textwidth},
+  dist/.style = {inner sep=0pt, text width = 0.4\textwidth},
+  node distance = 0.1cm,
+  ]
+  \node[snap] (X)     at (0,0)     {\includepgfgraphics[width=\textwidth]{img/families/nbulge1.5/xy_hex_nl.pgf}};
+  \node[snap] (Xbl) [below=of X,  yshift=-1.5cm]{\includepgfgraphics[width=\textwidth]{img/families/bulge1.5m/xy_hex_nl.pgf}};
+  \node[snap] (BLx) [below=of Xbl,yshift=-1.5cm]{\includepgfgraphics[width=\textwidth]{img/families/bulge1.5/xy_hex_nl.pgf}};
+  \node[snap] (BL)  [below=of BLx,yshift=-1.5cm]{\includepgfgraphics[width=\textwidth]{img/families/bulge1.5c/xy_hex_nl.pgf}};
+  \foreach \modelname\alias in {X/nbulge1.5, Xbl/bulge1.5m, BLx/bulge1.5, BL/bulge1.5c}{
+    \node[modelname, anchor=north west, xshift=2pt, yshift=-2pt] at (\modelname.north west) {\modelname}; 
+    \node[dist] (\modelname fy/fx) [right=of \modelname,yshift=-0.2cm] {\includepgfgraphics[width=\textwidth]{img/families/\alias/p_dNfyfx.pgf}};
+    \node[dist] (\modelname fR/fx) [right=of \modelname fy/fx]         {\includepgfgraphics[width=\textwidth]{img/families/\alias/p_dNfRfx.pgf}};
+  }
+\end{tikzpicture}  
+\caption{Основные различия в морфологии и населённости орбитальных семейств для всех 4 моделей. В левой колонке:
+  $(x,y)$ проекции интересующей области в квадрате $[-3;3]\times[-3;3]$, в центре: гистограмма отношения $ω_y/ω_x$
+  с шириной бина $0.01$, справа: гистограмма отношения $ω_R/ω_x$ с шириной бина $0.01$. По мере перехода от
+  арахисообразного бара к барлинзе заметно понижение высоты пика сооотвествующего бару в классическом
+  смысле и увеличение высоты пиков для не принадлежащих ему семейств. Уменьшается также и количество boxy орбит.
+}
+\label{fig:modelcomp1dist}
+\end{figure}
+
+Сопоставляя семейства с <<лучами>> на рис.~\ref{fig:fRxfyx_bar} можно заметить что орбиты, попавшие в
+$\text{bl}_{\text{o}}$ разбиваются на две группы: с $ω_x + ω_y \approx ω_R$ и с $ω_x \approx ω_y$. Первое из них
+было отмечено в работе \cite{gajda2016} как семейство не поддерживающее бар. Но при этом авторы включают в него и
+не попавшие в одну из выделенных ими групп орбиты с $ω_y/ω_x < 1.2$ для которых амлитуда наибольшего пика на
+периодограмме $y$ координаты больше аналогичной величины для $x$. Внимательно изучив форму изофот на проекциях
+всех частиц семейств я не обнаружил реальной разницы между верхним и нижним лучом. Поэтому, в данной работе обе
+этих группы объединены в $\text{bl}_\text{o}$.
+
+\begin{figure}
+\centering
+% \begin{minipage}{.23\textwidth}
+\begin{tikzpicture}[
+  annotation/.style = {
+    fill=lightgray, fill opacity=0.8, text opacity=1,
+    rounded corners=3pt
+  },
+  preview/.style = {inner sep=0pt, text width=0.2017\textwidth},
+  overview/.style = {inner sep=0pt, text width=0.78\textwidth},
+  node distance = 0pt
+  ]
+  \node[overview, anchor=south west] (BL) at (0,0) %
+    {\includepgfgraphics[width=\textwidth]{img/families/bulge1.5c/2dpr_fxfRfyfR.pgf}};
+  
+  \node[preview]  (Xb)  [left=of BL,xshift=-0.018\textwidth, yshift=0.029\textwidth] %
+    {\includepgfgraphics[width=\textwidth]{img/families/bulge1.5m/2dpr_fxfRfyfR_nl.pgf}};
+  \node[preview]  (X)   [above=of Xb]  %
+    {\includepgfgraphics[width=\textwidth]{img/families/nbulge1.5/2dpr_fxfRfyfR_nl.pgf}};
+  \node[preview]  (BLX) [below=of Xb] {\includepgfgraphics[width=\textwidth]{img/families/bulge1.5/2dpr_fxfRfyfR_nl.pgf}};
+  % family annotations for barlens
+  \begin{scope}[x={(BL.south east)},y={(BL.north west)}]
+    \coordinate (cen) at (0.427, 0.48);
+    \node (x1bar) [annotation,anchor=west]       at (0.53, 0.50) {$x_i$ bar};
+    \node         [annotation,anchor=center]     at (0.43, 0.70) {boxy bar};
+    \node         [annotation,anchor=west]       at (0.65, 0.70) {$\text{bl}_\text{u}$};
+    \node         [annotation,anchor=north west] at (0.30, 0.50) {$\text{bl}_\text{o}$};
+    \draw[->,thick,red!30!black,shorten >=2pt] (x1bar.west) to[out=180, in=320] (cen);
+    \node         [modelname,anchor=north west] at (0.105, 0.98) {BL};
+  \end{scope}
+  \foreach \modelname in {Xb, X, BLX}{
+    \node [modelname, anchor=north west, xshift=2pt, yshift=-2pt] at (\modelname.north west) {\modelname};
+  }
+\end{tikzpicture}
+\caption{Двумерное распределение орбит на плоскости$\omega_{\mathrm{R}}/ω_x$--$ω_y/ω_x$ для всех 4 моделей. Для
+модели с барлинзой подробно отмечены выделяемые семейства. Для остальных моделей распределения оформлены врезкой с
+такой же сеткой и цветовой шкалой. Видно, что все семейства, выделенные для BL присутствуют и в оставшихся
+моделях.}
+\label{fig:fRxfyx_bar}
+\end{figure}
+
+Однако, внутри основного семейства, поддерживающего бар, морфологически выделяется два подсемейства,
+прародителями которых могут быть резонансные орбиты $x_1$ и $x_2$ сооотвественно. Для того, чтобы учесть
+эти разлия необходимо привлечь дополнительную информацию кроме частот.
+В качестве такой дополнительной информации я использовал двумерные распределения отношения средней протяжённости
+орбиты по осям $y$ и $x$ к её среднему радиусу, представленный на рис.~\ref{fig:x1x2sep}. На этой иллюстрации
+хорошо видны две отдельные области, сооотвествующие разным типам орбит. Подобная картина наблюдается и для семейств
+$\text{bl}_\text{u}$ и $\text{bl}_\text{o}$\note{в последнем случае между <<островами>> есть небольшой
+<<перешеек>>, по середине которого и проходит демаркационная линия.}, однако для них вытянутые семейства содержат
+относительно малую долю частиц и не поддерживают ни бар, ни линзообразную структуру и, поэтому, были просто убраны. 
+Поскольку для каждого семейства (и каждой
+модели) граница, разделяющая области, своя, я не буду приводить точные значения коэффициентов уравнений прямых в
+уточнённых критериях для экономии места и времени читателя.  
+
+\begin{figure}[htpb]
+  \centering
+  \includepgfgraphics[width=0.7\textwidth]{img/families/bulge1.5c/bar/circ/m_Ravyavxav.pgf}
+\caption{Двумерное распределение $\averg{|y|}/\averg{|x|}$ от $\averg{R}$ для модели с барлинзой. Четко выделяются
+два семейства: компактные $x_2$ подобные орбиты в верхнем левом углу и вытянутые $x_1$-подобные внизу. }%
+\label{fig:x1x2sep}
+\end{figure}
+
+Точные значение количества частиц в каждом из выделенных семейств для всех моделей представлены в таблице~\ref{tab:familiesnumbers},
+а общая схема итоговой автоматической классификации проиллюстрирована для модели с барлинзой на рис.~\ref{fig:xy_collage_BL}.
+
+\begin{table}[hb]
+  \centering
+  \begin{tabular}{cr|ccccc}
+    \toprule
+              & семейство            & X     & Xbl   & BLx   & BL    & \\
+    \midrule
+              & ROI                  & 60.08 & 45.90 & 52.86 & 49.76 & \\
+              & ILR                  & 50.40 & 32.98 & 34.16 & 22.37 & \\
+              & $\text{bl}_\text{o}$ & 5.36  & 7.82  & 9.98  & 13.49 & \\
+              & $\text{bl}_\text{u}$ & 0.96  & 1.05  & 3.42  & 9.22  & \\
+              & $x_i$ bar            & 3.79  & 6.52  & 9.51  & 11.35 & \\
+              & boxy bar             & 49.60 & 25.68 & 23.88 & 10.45 & \\
+              & $x_1$                & 3.48  & 5.70  & 7.60  & 9.64  & \\
+              & $x_2$                & 0.30  & 0.83  & 1.91  & 1.71  & \\
+    \bottomrule
+  \end{tabular}
+  \caption{Количество орбит каждого семейства в моделях. В таблице приведена доля от полного числа частиц в диске ($4\cdot 10^6$) в процентах. }
+  \label{tab:familiesnumbers}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[
+      snap/.style = {text width = 5.5cm, inner sep=0pt},
+      snaplabel/.style = {
+        fill=white, fill opacity=0.8, text opacity=1,
+        font=\Large
+      },
+      smaller/.style = {text width = 2.5cm, inner sep=0pt},
+      node distance = 0.5cm,
+      connection/.style = {fill = lightgray, draw = lightgray, thick, rounded corners=1pt}
+    ]
+    \newcommand*{\nodeimage}[1]{\includepgfgraphics[width=\textwidth]{img/families/bulge1.5c/#1}}
+    \node[snap] (fullbar)                                      {\nodeimage{cl_xy_hex_nl.pgf}};
+    \node[snap] (bar)              [below=of fullbar]          {\nodeimage{bar/xy_hex_nl.pgf}};
+    \node[snap] (underbar)         [right=of fullbar]          {\nodeimage{underbar/pure/xy_hex_nl.pgf}};
+    \node[snap] (overbar)          [below=of underbar]         {\nodeimage{overbar/pure/xy_hex_nl.pgf}};
+    \node[snap] (bar circ)         [below=of bar]              {\nodeimage{bar/circ/xy_hex_nl.pgf}};
+    \node[snap] (bar boxy)         [right=of bar circ]         {\nodeimage{bar/boxy/xy_hex_nl.pgf}};
+    \node[snap] (bar circ along_x) [below=of bar circ]         {\nodeimage{bar/circ/along_x/xy_hex_nl.pgf}};
+    \node[snap] (bar circ along_y) [right=of bar circ along_x] {\nodeimage{bar/circ/along_y/xy_hex_nl.pgf}};
+    \foreach \snap/\label in {
+      fullbar/ROI, 
+      bar/ILR,
+      underbar/$\text{bl}_\text{u}$,
+      overbar/$\text{bl}_\text{o}$,
+      bar circ/$x_i$ bar,
+      bar boxy/boxy bar,
+      bar circ along_x/$x_1$,
+      bar circ along_y/$x_2$%
+      }{
+        \node [snaplabel, anchor=north west, xshift=2pt, yshift=-2.5pt] at (\snap.north west) {\label};
+    }
+%     \draw (fullbar.south west) -- (underbar.north west);
+    \path[connection] (fullbar.south east) to[out=90,in=240]  (underbar.west)  
+                                           to[out=120,in=270] (fullbar.north east) -- cycle;
+    %{}
+    \path[connection] (underbar.west) -- +(-6pt, +22pt) -- +(-4pt, 0pt) -- +(-6pt, -22pt) -- cycle; 
+    \foreach \from/\leftto\rightto in {
+      fullbar/bar/overbar,%
+      bar/bar circ/bar boxy,%
+      bar circ/bar circ along_x/bar circ along_y%
+    }{\path[connection] (\from.east)       to[out=270,in=110] (\rightto.north west) 
+                                           to[out=160,in=0]   (\from.south) -- (\from.south east) -- cycle;
+      \path[connection] (\from.south west) to[out=0,in=150]   (\leftto.north) 
+                                           to[out=30,in=180]  (\from.south east) -- cycle;
+      \path[connection] (\rightto.north west) -- +(0, 11pt) -- +(-3pt, 3pt) -- +(-11pt, 0) -- cycle;
+      \path[connection] (\leftto.north) -- +(-22pt, 6pt) -- +(0pt, 4pt) -- +(+22pt, 6pt) -- cycle;
+    }
+  %
+  \end{tikzpicture}
+  \caption{Схема разбиения на семейства на примере модели BL. Приведены $(x,y)$ проекции в квадрате
+  $[-2;2]\times[-2;2]$ в момент времени $t=450$.}
+\label{fig:xy_collage_BL}
+\end{figure}
+
+
+\end{document}
+% vim:wrapmargin=3
