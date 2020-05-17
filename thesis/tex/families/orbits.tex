@@ -1,0 +1,171 @@
+\documentclass[tikz]{trlnotes}
+\usepackage{trmath}
+\addcompatiblelayout{thesis}
+\setlayout{thesis}
+\usepackage{trthm}
+\usepackage{trsym} 
+\usepackage{trphys}
+\usepackage{silence}
+\WarningFilter{latex}{Reference}
+\graphicspath{{../../}}
+\usepackage[
+backend=biber,
+sorting=none,
+natbib=true,
+style=authoryear-comp,
+language=russian
+]{biblatex}
+\addbibresource{../../thesisrefs.bib}
+\begin{document}
+\newlength{\imageheight}
+\imageheight=5.5cm
+В центрально-симметричных гравитационных потенциалах, отличных от закона обратных квадратов,
+за редким исключением большая ограниченных часть орбит представляет собой розетки~"--- эллипсы, перицентры которых
+прецессируют вокруг начала координат \citep{book:14857}. Однако, в общем случае ни откуда не следует, что скорости прецессии
+будет одинаковой, тем не менее именно такая особенность наблюдается в галактиках с баром.
+Цитируя \cite{sellwood2014a}, можно сказать, что <<\ldots оказываемый баром эффект состоит в установлении общей скорости
+прецессии для орбит, которые в ином случае прецессировали бы с разной скоростью>>.
+Подобное простое рассуждение помогает принять понять что в моделях с баром (несмотря на всю сложность реального потенциала галактики)
+должно присутствовать резонансное орбитальное семейство, существование обусловлено самим присутствием бара и поддерживающее его.
+
+В классической работе \citet{dezeeuw1985}, были определены основные типа орбит в потенциалах, создаваемых
+вращающимися трёхосными эллипсоидами\note{в системе отсчёта связанной с его главными осями}: <<трубки>>, которые
+вращаются вокруг его наибольшей и наименьшей осей и <<ящики>> которые
+заметают область, включающую центр.  Многочисленные исследования аналитических моделей баров и баров в $N$-body
+моделях показывают, что основной тип орбиты поддерживающий бар в плоскости диска~"--- трубкообразная орбита,
+вращающаяся вдоль оси $z$, перпендикулярной плоскости диска и вытянутая вдоль большой оси бара
+\citep{athanassoula2003}. Согласно терминологии, введённой в \citet{contopoulos1980a}, принято обозначать такую
+орбиту $x_1$. Для трёхмерных баров ситуация становится более сложной, и необходимо рассматривать возмущённые в
+вертикальном направлении орбиты $x_1\,v_i$, $i=1,2,3, \dotsc$, ответвляющиеся от изначальной плоской орбиты с
+$ω_z/ω_x = 2,3, \dotsc$ \citep{skokos2002a,pfenniger1991}. Однако, в данной работе нас мало интересует
+вертикальная структура B/PS балджа и, в силу процедуры выбора интересующей области, более высокие чем $x_1v_2$
+резонансы не рассматриваются.
+
+Помимо $x_1$, \citet{contopoulos1980a} выделяют ещё три семейства трубок в плоскости диска, вытянутых
+перпендикулярно бару: $x_2$, $x_3$, $x_4$ (\cite[стр.~185]{2008gady.book.....B}. Нас будут интересовать
+только $x_2$ и $x_4$, поскольку, как отмечают авторы оригинальной работы, слишком вытянутые орбиты $x_3$
+неустойчивы. Основная разница между $x_2$ и $x_4$ заключается в знаке момента импульса вокруг оси $z$: первые
+вращаются туда же, куда и бар в инерциальной системе отсчёта, а вторые~"--- ретроградно. Отдельные трубкообразные орбиты,
+извлечённые из наших моделей, представлены на рис.~\ref{fig:orbtubes} вместе со спектрами временных рядов их декартовых координат. 
+Сравнивая $(x,y)$ приведённые проекции с изображениями выделенных орбитальных семейств (\ref{fig:xy_collage_BL}),
+можно убедиться, что для $x_1$ <<петли>> на концах орбиты, находящиеся на $|x|\approx 1$ соответствуют местам
+уярчения для всего семейства. Такой эффект возникает из-за того, что в петлях звезда проводит больше времени.
+Интересно отметить, что в модели X я не нашёл ни одной орбиты $x_2$, но при этом есть небольшое количество 
+ретроградных орбит $x_4$. Такой же результат был получен в \citet{valluri2016,voglis2007}, использовавших
+модели, начальные условия которых не включали классический балдж. При этом, в во всех
+рассмотренных моделях с балджем, наблюдается обратное соотношение и орбит $x_2$ гораздо больше чем $x_4$.
+
+Помимо трубок, модели включают значительное количество ящикообразных орбит, вносящих свой вклад
+в бар. На рис.~\ref{fig:orbboxy} приведён экземляр нерезонансной орбиты из модели с барлинзой (в верхнем ряду)
+и резонансные орбиты из 3 моделей, соответствующие наиболее высокому пику в интервале $(1.1;2)$ на одномерном 
+распределении $ω_y/ω_x$ (\ref{fig:modelcomp1dist}).
+Подобные орбиты достаточно широко освещены в литературе, например на двумерных распределениях отношений частот, изображённых
+на рис.~12 из \cite{gajda2016} и рис.~13 из \cite{valluri2016} хорошо видны прямые, соответствующие тем же
+значениям $ω_y/ω_x$, выступающие на фоне <<моря>> нерезонансных ящикообразных орбит.
+
+До сих пор я затрагивал только орбиты, принадлежащие к бару в его классическом понимании: с $ω_R/ω_x \approx 2$.
+Однако, в наших моделях, как было описано в предыдущей главе, есть и другие семейства, не поддерживающие бар.
+На рис.~\ref{fig:orbblu} приведены экземляры семейства $\text{bl}_{\text{u}}$ с $ω_R/ω_x < 1.9$. Большая часть 
+входящих в него орбит~"--- это розетки (верхние два ряда) разных размеров, 
+распроложенные вблизи пика в $ω_R/ω_x \approx 1.7$ на рис.~\ref{fig:modelcomp1dist}.
+Сравнивая очертания подобной орбиты с изофотами семейства на \ref{fig:xy_collage_BL}, хорошо видно что именно они отвечают
+за характерную округлую морфологию всего семейства. Однако, не менее интересные орбиты представлены
+на двух нижних рядах рис.~\ref{fig:orbblu}~"--- трёх- и четырёхлистники. Подобные резонансные орбиты можно
+найти на рис.~22 \citet{voglis2007}, но, в целом, они незаслуженно обделены вниманием в литературе.
+Возможная причина этого в том, что данное семейство становится заметным только при добавлении балджа в модель, как хорошо
+заметно на \ref{fig:modelcomp1dist}.
+Обращаясь к спектрам этих орбит, стоит отметить, что, в отличие от орбит лежащих в баре, у них есть
+выраженный второй пик на периодограмме $x(t)$. Этот факт играет определяющую роль в невыполнении равенства $ω_R = 2\,ω_x$.
+
+В отличие от $\text{bl}_{\text{u}}$, огибающая членов $\text{bl}_{\text{o}}$ (рис.~\ref{fig:orbblo})
+имеет, скорее, квадратную форму, что согласуется с формой изофот семейства на рис.~\ref{fig:xy_collage_BL}. Похожая 
+приводится, например, на рис.~6 в \cite{gajda2016}. Поскольку эти орбиты находятся
+гораздо дальше и <<отстают>> от бара, за весь исследуемый промежуток времени они совершают меньше 20 оборотов и их спектры зашумлены. Поэтому
+сложно говорить о наличии или отсутствии на них вторых пиков. Однако, среди представителей этого семейства можно обнаружить 
+округлые орбиты (в третьем ряду рис.~\ref{fig:orbblo}) и даже резонансные трилистники (в четвёртом ряду). 
+На мой взгляд именно эти орбиты отвечают за округлую форму изофот во внутренних областях семейства. 
+Интересно сопоставить разные орбиты из $\text{bl}_\text{o}$ с <<лучами>>, соответствующими семейству на распределении \ref{fig:fRfxfRfy_bar}.
+Например, в работе \cite{gajda2016} описано семество с квадратной морфологией с $ω_x + ω_y = ω_R$, совпадающее с верхним 
+лучом на этой иллюстрации. Однако, приведённые примеры орбит ясно показывают отсутствие выраженной
+связи между внешним видом орбиты и отношением $ω_y/ω_x$.
+В связи с этим, в этой работе обе группы: и c $ω_y/ω_x \approx 1$ и с $ω_y/ω_x > 1.1$ отнесены к одному семейству. 
+Обсуждение возможных уточнений подобной классификации для того, 
+чтобы всё-таки разделить отличающиеся по морфологии семейства будет приведено в следующей главе.
+
+
+
+\begin{figure}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x1/orbit-2119664-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x1/orbit-2119664-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x1/orbit-1889117-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x1/orbit-1889117-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x2/orbit-3291205-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/x2/orbit-3291205-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/nbulge1.5/orbit-0218273-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/nbulge1.5/orbit-0218273-spectra.pgf}
+  \caption{Примеры трубкообразных орбит в моделях. В двух первых рядах представлены $x_1$-подобные орбиты,
+  вытянутые вдоль большой оси бара из BL, в третьем ряду орбита типа $x_2$ из BL, а в четвёртом ряду орбита $x_4$ (ретроградная) их X.}
+  \label{fig:orbtubes}
+\end{figure}
+
+
+\begin{figure}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/box/orbit-3578359-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/box/orbit-3578359-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/nbulge1.5/orbit-3762774-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/nbulge1.5/orbit-3762774-spectra.pgf}
+%   \\
+%   \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5/orbit-0917708-xy.pgf}
+%   \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5/orbit-0917708-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5/orbit-3521736-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5/orbit-3521736-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/boxlet/orbit-1467792-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/boxlet/orbit-1467792-spectra.pgf}
+\caption{Ящикообразные орбиты из рассматриваемых моделей. В первом ряду нерезонансная орбита из BL, во втором ряду квазирезонансная орбита 
+с $ω_y/ω_x = 5/3$ из X, в третьем квазирезонансная орбита с $ω_y/ω_x = 3/2$ из BLx, в четвёртом квазирезонансная орбита с $ω_y/ω_x = 4/3$ из BL.}
+\label{fig:orbboxy}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/rosetta/orbit-0218811-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/rosetta/orbit-0218811-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/rosetta/orbit-3793601-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/rosetta/orbit-3793601-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/nfoil/orbit-2598721-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/nfoil/orbit-2598721-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/nfoil/orbit-3533413-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/nfoil/orbit-3533413-spectra.pgf}
+  \caption{Представители семейства $\text{bl}_\text{u}$ в модели BL. Виден заметный второй пик на спектре $x(t)$.}
+  \label{fig:orbblu}
+\end{figure}
+
+
+\begin{figure}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/sq/orbit-0609211-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/sq/orbit-0609211-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/sq/orbit-3404886-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/sq/orbit-3404886-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/cr/orbit-2403647-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/cr/orbit-2403647-spectra.pgf}
+  \\
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/cr/orbit-2193133-xy.pgf}
+  \includepgfgraphics[height=\imageheight]{img/orbits/bulge1.5c/cr/orbit-2193133-spectra.pgf}
+  \caption{Представители семейства $\text{bl}_\text{o}$ в модели BL. Для некоторых орбит заметны вторые пики, 
+    но большинство спектров слишком зашумлены.}
+  \label{fig:orbblo}
+\end{figure}
+
+\end{document}
+% vim:wrapmargin=3
