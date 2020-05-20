@@ -34,7 +34,7 @@
   uniquename=false
 ]{biblatex}
 \addbibresource{thesisrefs.bib}
-
+\tikzexternalize
 \begin{document}
 
 \input{titlepage}\newpage
@@ -58,7 +58,7 @@
 
 \chapter{Выделение семейств}
 \label{chap:split}
-%\input{tex/families/split.tex}
+\input{tex/families/split.tex}
 
 \chapter{Определение орбитального состава}
 \label{chap:orbits}
@@ -77,10 +77,10 @@
 \appendix
 
 %библиография есть, но на overleaf с ней не собирается
-\printbibliography[
- heading=bibintoc,
- title={Литература}
-]
+%\printbibliography[
+% heading=bibintoc,
+% title={Литература}
+%]
 
 \end{document}
 
