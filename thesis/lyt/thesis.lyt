@@ -22,7 +22,7 @@
 % 12 pt \small,
 % 16 pt \large
 % 18 pt \Large, но лучше б был 20
-\storePairDef{size=thesis}
+\storePairDef{size=thesis12}
 \setfont{\getByKey{size}}
 
 \RequirePackage{setspace}
@@ -42,16 +42,17 @@
   bindingoffset=0cm
 }
 \protected\def\note{\footnote}
-
+\counterwithin*{footnote}{chapter}
 \renewcommand{\arraystretch}{1.25}
 \RequirePackage{titlesec}
 
 \renewcommand{\averg}[1]{\ensuremath\langle#1\rangle}
 
+\titlespacing{\chapter}{0pt}{0pt}{2em}
 \titleformat{\chapter}
   {\sffamily\upshape\bfseries\Large}
   {\thechapter\\}
-  {1em}{}
+  {1em}{\setcounter{footnote}{0}}
 
 \renewcommand{\paragraph}{
   \@startsection{paragraph}{2}{\z@}%
