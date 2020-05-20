@@ -26,6 +26,33 @@
 ## Logs and databases #
 *.sql
 *.sqlite
+# by latex[mk] generated
+*.toc
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+# bib[la]tex stuff
+*.bbl
+*.blg
+*.ent
+*.run.xml
+*.bcf
+# tikz
+*.dep
+*.gnuplot
+*.dpth
+*.md5
+*.auxlock
+# beamer
+*.nav
+*.snm
+
+!figures-tikz/*.pdf
+!figures-tikz/*.run.xml
+!figures-tikz/*.md5
+!figures-tikz/*.dpth
 
 # OS generated files #
 ######################
