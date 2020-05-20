@@ -46,7 +46,7 @@
 \renewcommand{\arraystretch}{1.25}
 \RequirePackage{titlesec}
 
-
+\renewcommand{\averg}[1]{\ensuremath\langle#1\rangle}
 
 \titleformat{\chapter}
   {\sffamily\upshape\bfseries\Large}
