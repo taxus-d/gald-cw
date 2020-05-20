@@ -1,4 +1,4 @@
-\documentclass{trlnotes}
+\documentclass[tikz]{trlnotes}
 \usepackage{trmath}
 \addcompatiblelayout{thesis}
 \setlayout{thesis}
@@ -16,11 +16,9 @@
   natbib=true,
   style=authoryear-comp,
   sorting=none,
-  language=russian
+  uniquename=false
 ]{biblatex}
 \addbibresource{thesisrefs.bib}
-
-\graphicspath{{img/}}
 
 \begin{document}
 
@@ -63,8 +61,7 @@
 
 \appendix
 
-библиография есть, но на overleaf с ней не собирается
-\nocite{*}
+%библиография есть, но на overleaf с ней не собирается
 \printbibliography[
  heading=bibintoc,
  title={Литература}

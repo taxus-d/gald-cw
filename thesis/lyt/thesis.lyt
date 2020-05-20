@@ -1,13 +1,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{thesis.lyt}[2018/09/25 Somewhat common layout]
 
+\defaultfontfeatures{Ligatures={TeX}} 
 \setmainfont{PT Serif}
 \setsansfont{Nunito Sans}[
    BoldFont    = {Nunito Sans Semibold}
 ]
 
 \setmonofont{CMU Typewriter Text}
-%\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
 
 \setmathfont{STIX Two Math}
 % Use XITSMath for    [     ]     (     )     {     }
@@ -25,6 +26,7 @@
 \storePairDef{size=thesis}
 \setfont{\getByKey{size}}
 
+\RequirePackage{setspace}
 \RequirePackage{indentfirst}
 \setlength{\parindent}{1.25cm}
 \renewcommand{\baselinestretch}{1.5}
@@ -42,7 +44,7 @@
 }
 \protected\def\note{\footnote}
 
-\renewcommand{\arraystretch}{1}
+\renewcommand{\arraystretch}{1.25}
 \RequirePackage{titlesec}
 
 

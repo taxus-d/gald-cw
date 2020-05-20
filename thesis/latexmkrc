@@ -1,6 +1,8 @@
 $ENV{'TEXINPUTS'}=':' if length $ENV{'TEXINPUTS'} == 0;
-$ENV{'TEXINPUTS'}='.//:' . $ENV{'TEXINPUTS'}; 
-$ENV{'TEXINPUTS'}='./support//:' . $ENV{'TEXINPUTS'}; 
+$ENV{'TEXINPUTS'}='./tex//:' . $ENV{'TEXINPUTS'}; 
+$ENV{'TEXINPUTS'}='./packages//:' . $ENV{'TEXINPUTS'}; 
+$ENV{'TEXINPUTS'}='./lyt//:' . $ENV{'TEXINPUTS'}; 
+$ENV{'TEXINPUTS'}='./:' . $ENV{'TEXINPUTS'}; 
 $ENV{'OSFONTDIR'}="/usr/local/share/fonts:$HOME/.fonts:./fonts//";
 #add_cus_dep( 'tex', 'pdf', 0, 'fontcache' );
 #  sub fontcache {

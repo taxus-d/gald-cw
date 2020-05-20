@@ -936,7 +936,7 @@
 \definecolor{textcolor}{rgb}{0.150000,0.150000,0.150000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.261295in,y=1.686357in,,bottom,rotate=90.000000]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle \omega_x \approx \Omega - \Omega_p\)}%
+\pgftext[x=0.261295in,y=1.686357in,,bottom,rotate=90.000000]{\color{textcolor}\sffamily\fontsize{12.000000}{14.400000}\selectfont \(\displaystyle |\omega_x| \approx |\Omega - \Omega_p|\)}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
