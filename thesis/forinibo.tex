@@ -1,0 +1,123 @@
+\documentclass[draft]{trlnotes}
+\usepackage{trmath}
+\addcompatiblelayout{thesis}
+\setlayout{thesis}
+
+\setmainfont{PT Serif}
+\setsansfont{Nunito Sans}[
+   BoldFont    = {Nunito Sans Semibold}
+]
+
+\setmonofont{CMU Typewriter Text}
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text}[Script=Cyrillic]
+
+\setmathfont{STIX Two Math}
+% Use XITSMath for    [     ]     (     )     {     }
+% \setmathfont[range={"005B,"005D,"0028,"0029,"007B,"007D}]{XITS Math}
+% но не все, а только фигурные
+\setmathfont[range={"007B,"007D,"023DF}]{XITS Math}
+
+
+\usepackage{aas_macros}
+\usepackage{trthm}
+\usepackage{trphys}
+\usepackage[normalem]{ulem}
+\usepackage{trsym}
+\usepackage{docmute}
+\usepackage{luacode}
+% \usepackage{tikz}
+\usepackage[
+  backend=biber,
+  natbib=true,
+  style=authoryear-comp,
+  sorting=nyt,
+  uniquename=false
+]{biblatex}
+\addbibresource{thesisrefs.bib}
+% \tikzexternalize
+% \tikzexternalize[prefix=figures-tikz/]
+\begin{document}
+\begin{otherlanguage}{english}
+% \input{titlepage}\newpage
+\input{titlepage_en_it} 
+
+\begin{abstract}
+According to the recent IR surveys, almost $2/3$ of all disk galaxies host
+bars. At the same time, the bars in early type disk galaxies seen face-on can be
+divided in at least two distinct groups: bars with the barlenses and face-on peanuts.
+The principal objective of my work is to explain what is behind this difference
+in face-on bar morphologies.
+
+The distinctive feature of the bars with the barlenses is the lenticular thickening in the
+center, constituting approximately half the length of the bar.
+They were introduced in the literature by \citet{laurikainen2011}.
+Despite the fact that the barlenses were studied in great detail, their
+nature still remains unknown. The second bar type is the face-on peanut, characterized by box-like or peanut-like isophotes.
+Both types manifest themselves in observations, numerous examples are provided by \citet{laurikainen2017}.
+\citet{salo2017} have shown that it is possible to obtain
+different bar morphologies in self-consistent N-body simulations.  This result
+was confirmed by \citet{smirnov2018}.
+Increasing concentration of the bulge in a model causes a transformation of the visible shape: 
+from the face-on peanut to the bar with barlens.
+However, to understand the physical reasons for this metamorphosis it is
+crucially important to study the orbital structure of the models and to find
+orbital families, responsible for the specific morphology.
+
+In this work, we examine 4 N-body models of disk galaxies
+with bars that show a smooth transition from the face-on peanut morphology to the bar with the
+barlens. From the spectral analysis of individual orbits in the simulations,
+we show that this diversity is due to different populations of orbital families
+that are responsible for the observed features.  By classifying the specimens
+from them in detail and providing the backbone orbits for each family we show
+how the gradual increase of the bulge concentration in a model leads to the
+domination of orbits that do not constitute the bar in its classical meaning
+and form a roundish morphology over the box family supporting the face-on
+peanut bar. 
+
+\end{abstract}
+
+\setcounter{page}{3}
+\tableofcontents
+\clearpage
+
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction: bars and B/PS bulges}
+% \input{tex/intro/intro.tex}
+
+\chapter{Models}
+\label{chap:model}
+% \input{tex/model/model.tex}
+
+\chapter{Analysis of dominant frequencies}
+\label{chap:method}
+% \input{tex/method/method.tex}
+
+\chapter{Classification of orbital families}
+\label{chap:split}
+% \input{tex/families/split.tex}
+
+\chapter{Orbital composition in detail}
+\label{chap:orbits}
+% \input{tex/families/orbits.tex}
+
+\chapter{Discussion}
+\label{chap:discuss}
+% \input{tex/discuss/discussion.tex}
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+\label{chap:conc}
+% \input{tex/conc/conclusion.tex}
+\clearpage
+
+\appendix
+
+%библиография есть, но на overleaf с ней не собирается
+\printbibliography[
+  heading=bibintoc,
+  title={References}
+]
+\end{otherlanguage}
+\end{document}
+

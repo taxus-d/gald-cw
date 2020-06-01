@@ -1,7 +1,7 @@
 \documentclass[tikz]{trlnotes}
 \usepackage{trmath}
 \addcompatiblelayout{thesis}
-\setlayout{thesis}
+\setlayout[size=thesis12]{thesis}
 
 \setmainfont{PT Serif}
 \setsansfont{Nunito Sans}[
@@ -38,8 +38,8 @@
 \tikzexternalize[prefix=figures-tikz/]
 \begin{document}
 
-\input{titlepage}\newpage
-\input{titlepage_en} 
+\input{titlepage_short.tex}\newpage
+\input{titlepage_short_en} 
 \setcounter{page}{3}
 
 \tableofcontents
